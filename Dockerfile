@@ -1,10 +1,3 @@
-FROM openbao/openbao-hsm-ubi:2.3.2
-
+FROM ghcr.io/openbao/openbao-hsm-nightly:2.4.0-nightly1754588433-amd64
 USER root
-
-RUN rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-
-# Install EPEL repository and SoftHSM
-RUN microdnf install softhsm -y
-
-USER openbao
+RUN apk add softhsm opensc
