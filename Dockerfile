@@ -22,7 +22,7 @@ RUN cd / && git clone https://github.com/CardContact/sc-hsm-embedded.git
 WORKDIR /sc-hsm-embedded
 RUN autoreconf -fi && ./configure
 RUN make && make install
-
+WORKDIR /
 RUN apk add --no-cache opensc-dev ccid pcsc-lite openssl libtool
 
 RUN cp /usr/local/bin/docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh.orig
